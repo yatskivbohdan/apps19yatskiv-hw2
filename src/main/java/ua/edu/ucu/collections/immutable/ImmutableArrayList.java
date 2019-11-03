@@ -18,12 +18,8 @@ public class ImmutableArrayList implements ImmutableList {
         System.arraycopy(arrayGiven, 0, elements, 0, arrayGiven.length);
     }
 
-    public int getLength() {
-        return length;
-    }
-
     private void indexCheck(int index) {
-        if (index < 0 || index > length) {
+        if (index < 0 || index > size()) {
             throw new IndexOutOfBoundsException("Index out of bounds");
         }
     }
@@ -94,7 +90,7 @@ public class ImmutableArrayList implements ImmutableList {
 
     @Override
     public int size() {
-        return getLength();
+        return length;
     }
 
     @Override
