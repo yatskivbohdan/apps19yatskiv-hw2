@@ -70,15 +70,17 @@ public class ImmutableArrayListTest {
 
     @Test(expected = IndexOutOfBoundsException.class)
     public void testRemoveWrongIndex() {
-        empty.remove(3);
+        empty.remove(-3);
     }
 
     @Test
     public void testRemove() {
         ImmutableArrayList actual = (ImmutableArrayList) array.remove(1);
         ImmutableArrayList expected = new ImmutableArrayList(new Object[]{1, 3.0});
+        ImmutableArrayList actual1 = (ImmutableArrayList) array.remove(2);
+        ImmutableArrayList expected1 = new ImmutableArrayList(new Object[]{1, "2"});
         assertArrayEquals(actual.toArray(), expected.toArray());
-
+        assertArrayEquals(actual1.toArray(), expected1.toArray());
     }
     @Test(expected = IndexOutOfBoundsException.class)
     public void testSetWrongIndex() {
