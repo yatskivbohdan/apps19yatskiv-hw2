@@ -141,4 +141,62 @@ public class ImmutableLinkedListTest {
 
     }
 
+    @Test(expected = NullPointerException.class)
+    public void testGetFirstEmpty() {
+        empty.getFirst();
+    }
+
+    @Test
+    public void testGetFirst() {
+        Object a = list.getFirst();
+        Object b = oneEl.getFirst();
+        assertEquals(a, 1);
+        assertEquals(b, 1);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testGetLastEmpty() {
+        empty.getLast();
+    }
+
+    @Test
+    public void testGetLast() {
+        Object a = list.getLast();
+        Object b = oneEl.getLast();
+        assertEquals(a, 3.0);
+        assertEquals(b, 1);
+    }
+
+    public void testAddFirst() {
+        ImmutableLinkedList a = list.addFirst(1);
+        ImmutableLinkedList b = oneEl.addFirst(2);
+        assertArrayEquals(a.toArray(), new Object[]{1, 1, "2", 3.0});
+        assertArrayEquals(b.toArray(), new Object[]{2, 1});
+    }
+
+    @Test
+    public void testAddLast() {
+        ImmutableLinkedList a = list.addLast(1);
+        ImmutableLinkedList b = oneEl.addLast(2);
+        assertArrayEquals(a.toArray(), new Object[]{1, "2", 3.0, 1});
+        assertArrayEquals(b.toArray(), new Object[]{1, 2});
+    }
+
+    public void testRemoveFirst() {
+        ImmutableLinkedList a = list.removeFirst();
+        ImmutableLinkedList b = oneEl.removeFirst();
+        assertArrayEquals(a.toArray(), new Object[]{"2", 3.0});
+        assertArrayEquals(b.toArray(), new Object[]{});
+    }
+
+    @Test
+    public void testRemoveLast() {
+        ImmutableLinkedList a = list.removeLast();
+        ImmutableLinkedList b = oneEl.removeLast();
+        assertArrayEquals(a.toArray(), new Object[]{1, "2"});
+        assertArrayEquals(b.toArray(), new Object[]{});
+    }
+
+
+
 }
