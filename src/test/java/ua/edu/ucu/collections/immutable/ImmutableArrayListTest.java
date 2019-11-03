@@ -86,6 +86,13 @@ public class ImmutableArrayListTest {
     }
 
     @Test
+    public void testSet() {
+        ImmutableArrayList actual = (ImmutableArrayList) array.set(1, 5);
+        ImmutableArrayList expected = new ImmutableArrayList(new Object[]{1, 5, 3.0});
+        assertArrayEquals(actual.toArray(), expected.toArray());
+    }
+
+    @Test
     public void testIndexOf() {
         int a = array.indexOf("2");
         int b = array.indexOf(5);
@@ -99,6 +106,30 @@ public class ImmutableArrayListTest {
         ImmutableArrayList actual = (ImmutableArrayList) array.clear();
         ImmutableArrayList expected = new ImmutableArrayList();
         assertArrayEquals(actual.toArray(), expected.toArray());
+
+    }
+
+    @Test
+    public void testSize(){
+        int a = empty.size();
+        int b = array.size();
+        assertEquals(a, 0);
+        assertEquals(b, 3);
+
+    }
+    @Test
+    public void testEmpty(){
+        boolean a = empty.isEmpty();
+        boolean b = array.isEmpty();
+        assertTrue(a);
+        assertFalse(b);
+
+    }
+
+    @Test
+    public void testToString(){
+        String a = array.toString();
+        assertEquals(a, "{1, 2, 3.0}");
 
     }
 }
