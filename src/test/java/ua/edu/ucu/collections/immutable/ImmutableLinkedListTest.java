@@ -166,7 +166,7 @@ public class ImmutableLinkedListTest {
         assertEquals(a, 3.0);
         assertEquals(b, 1);
     }
-
+    @Test
     public void testAddFirst() {
         ImmutableLinkedList a = list.addFirst(1);
         ImmutableLinkedList b = oneEl.addFirst(2);
@@ -182,6 +182,7 @@ public class ImmutableLinkedListTest {
         assertArrayEquals(b.toArray(), new Object[]{1, 2});
     }
 
+    @Test
     public void testRemoveFirst() {
         ImmutableLinkedList a = list.removeFirst();
         ImmutableLinkedList b = oneEl.removeFirst();
