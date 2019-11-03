@@ -76,7 +76,7 @@ public class ImmutableLinkedList implements ImmutableList {
         Object[] newArray = new Object[length + c.length];
         System.arraycopy(array, 0, newArray, 0, index);
         System.arraycopy(c, 0, newArray, index, c.length);
-        System.arraycopy(array, index, newArray, index+c.length, length-index);
+        System.arraycopy(array, index, newArray, index + c.length, length - index);
         return new ImmutableLinkedList(newArray);
     }
 

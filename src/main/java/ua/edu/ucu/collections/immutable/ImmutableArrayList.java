@@ -47,7 +47,8 @@ public class ImmutableArrayList implements ImmutableList {
         Object[] newElements = new Object[length + c.length];
         System.arraycopy(elements, 0, newElements, 0, index);
         System.arraycopy(c, 0, newElements, index, c.length);
-        System.arraycopy(elements, index, newElements, index+c.length, length-index);
+        System.arraycopy(elements, index, newElements, index + c.length,
+                      length - index);
         return new ImmutableArrayList(newElements);
     }
 
@@ -63,7 +64,8 @@ public class ImmutableArrayList implements ImmutableList {
         Object[] newElements = new Object[length - 1];
         System.arraycopy(elements, 0, newElements, 0, index);
         if (index + 1 < length) {
-            System.arraycopy(elements, index + 1, newElements, index, length - index - 1);
+            System.arraycopy(elements, index + 1, newElements, index,
+                          length - index - 1);
         }
         return new ImmutableArrayList(newElements);
 
@@ -111,12 +113,12 @@ public class ImmutableArrayList implements ImmutableList {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder toReturn = new StringBuilder();
         toReturn.append("{");
-        for (int i = 0; i < length; i++){
+        for (int i = 0; i < length; i++) {
             toReturn.append(elements[i]);
-            if (i != length - 1){
+            if (i != length - 1) {
                 toReturn.append(", ");
             }
         }

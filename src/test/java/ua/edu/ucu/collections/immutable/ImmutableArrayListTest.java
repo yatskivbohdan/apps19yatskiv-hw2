@@ -2,6 +2,7 @@ package ua.edu.ucu.collections.immutable;
 
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 public class ImmutableArrayListTest {
@@ -18,9 +19,10 @@ public class ImmutableArrayListTest {
         Object[] data = {1, "2", 3.0};
         array = new ImmutableArrayList(data);
     }
+
     @Test
     public void testAdd() {
-        Object[] exp = {1,"2", 3.0, 4};
+        Object[] exp = {1, "2", 3.0, 4};
         Object[] expEmpty = {1, "2"};
         ImmutableArrayList arr = (ImmutableArrayList) empty.add(1);
         ImmutableArrayList arr1 = (ImmutableArrayList) arr.add(1, "2");
@@ -34,12 +36,13 @@ public class ImmutableArrayListTest {
         assertArrayEquals(arr4.toArray(), expected.toArray());
         assertArrayEquals(arr5.toArray(), expected.toArray());
     }
+
     @Test
     public void testAddAll() {
-        Object[] exp = {1,"2", 3.0, 4, "5"};
+        Object[] exp = {1, "2", 3.0, 4, "5"};
         ImmutableArrayList expected = new ImmutableArrayList(exp);
         Object[] empty1 = {3.0, 4, "5"};
-        Object[] empty2 = {1,"2"};
+        Object[] empty2 = {1, "2"};
         ImmutableArrayList arr = (ImmutableArrayList) empty.addAll(empty1);
         ImmutableArrayList emptyAct = (ImmutableArrayList) arr.addAll(0, empty2);
         Object[] one1 = {3.0, 4, "5"};
@@ -55,6 +58,7 @@ public class ImmutableArrayListTest {
         assertArrayEquals(arrayAct.toArray(), expected.toArray());
 
     }
+
     @Test(expected = IndexOutOfBoundsException.class)
     public void testGetWrongIndex() {
         empty.get(3);
@@ -82,6 +86,7 @@ public class ImmutableArrayListTest {
         assertArrayEquals(actual.toArray(), expected.toArray());
         assertArrayEquals(actual1.toArray(), expected1.toArray());
     }
+
     @Test(expected = IndexOutOfBoundsException.class)
     public void testSetWrongIndex() {
         empty.set(3, "1");
@@ -112,15 +117,16 @@ public class ImmutableArrayListTest {
     }
 
     @Test
-    public void testSize(){
+    public void testSize() {
         int a = empty.size();
         int b = array.size();
         assertEquals(a, 0);
         assertEquals(b, 3);
 
     }
+
     @Test
-    public void testEmpty(){
+    public void testEmpty() {
         boolean a = empty.isEmpty();
         boolean b = array.isEmpty();
         assertTrue(a);
@@ -129,7 +135,7 @@ public class ImmutableArrayListTest {
     }
 
     @Test
-    public void testToString(){
+    public void testToString() {
         String a = array.toString();
         assertEquals(a, "{1, 2, 3.0}");
 
