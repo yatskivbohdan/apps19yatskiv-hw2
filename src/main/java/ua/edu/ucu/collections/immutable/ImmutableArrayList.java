@@ -3,8 +3,8 @@ package ua.edu.ucu.collections.immutable;
 
 public class ImmutableArrayList implements ImmutableList {
 
-    private int length;
     private static final int DEFAULT_LENGTH = 0;
+    private int length;
     private Object[] elements;
 
     public ImmutableArrayList() {

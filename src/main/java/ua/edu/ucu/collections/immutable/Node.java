@@ -24,12 +24,12 @@ public class Node {
         return next;
     }
 
-    public void setValue(Object value) {
-        this.value = value;
+    public void setValue(Object val) {
+        value = val;
     }
 
-    public void setNext(Node next) {
-        this.next = next;
+    public void setNext(Node nxt) {
+        next = nxt;
     }
 
 

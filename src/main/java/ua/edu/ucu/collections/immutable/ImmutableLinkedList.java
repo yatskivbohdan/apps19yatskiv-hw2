@@ -76,7 +76,8 @@ public class ImmutableLinkedList implements ImmutableList {
         Object[] newArray = new Object[length + c.length];
         System.arraycopy(array, 0, newArray, 0, index);
         System.arraycopy(c, 0, newArray, index, c.length);
-        System.arraycopy(array, index, newArray, index + c.length, length - index);
+        System.arraycopy(array, index, newArray,
+                      index + c.length, length - index);
         return new ImmutableLinkedList(newArray);
     }
 
@@ -190,10 +191,10 @@ public class ImmutableLinkedList implements ImmutableList {
         newList.head = new Node(head.getValue());
         newList.length = length;
         Node currentNode = head.getNext();
-        Node currentNode1 = newList.head;
+        Node currentNodeNew = newList.head;
         while (currentNode != null) {
-            currentNode1.setNext(new Node(currentNode.getValue()));
-            currentNode1 = currentNode1.getNext();
+            currentNodeNew.setNext(new Node(currentNode.getValue()));
+            currentNodeNew = currentNodeNew.getNext();
             currentNode = currentNode.getNext();
         }
         return newList;
