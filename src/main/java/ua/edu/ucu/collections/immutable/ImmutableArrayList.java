@@ -25,24 +25,24 @@ public class ImmutableArrayList implements ImmutableList {
     }
 
     @Override
-    public ImmutableList add(Object e) {
+    public ImmutableArrayList  add(Object e) {
         return add(length, e);
     }
 
     @Override
-    public ImmutableList add(int index, Object e) {
+    public ImmutableArrayList  add(int index, Object e) {
         Object[] newElement = new Object[1];
         newElement[0] = e;
         return addAll(index, newElement);
     }
 
     @Override
-    public ImmutableList addAll(Object[] c) {
+    public ImmutableArrayList  addAll(Object[] c) {
         return addAll(length, c);
     }
 
     @Override
-    public ImmutableList addAll(int index, Object[] c) {
+    public ImmutableArrayList  addAll(int index, Object[] c) {
         indexCheck(index);
         Object[] newElements = new Object[length + c.length];
         System.arraycopy(elements, 0, newElements, 0, index);
@@ -59,7 +59,7 @@ public class ImmutableArrayList implements ImmutableList {
     }
 
     @Override
-    public ImmutableList remove(int index) {
+    public ImmutableArrayList  remove(int index) {
         indexCheck(index);
         Object[] newElements = new Object[length - 1];
         System.arraycopy(elements, 0, newElements, 0, index);
@@ -72,7 +72,7 @@ public class ImmutableArrayList implements ImmutableList {
     }
 
     @Override
-    public ImmutableList set(int index, Object e) {
+    public ImmutableArrayList set(int index, Object e) {
         indexCheck(index);
         Object[] newElements = toArray();
         newElements[index] = e;
@@ -83,7 +83,7 @@ public class ImmutableArrayList implements ImmutableList {
     @Override
     public int indexOf(Object e) {
         for (int i = 0; i < length; i++) {
-            if (elements[i] == e) {
+            if (elements[i].equals(e)) {
                 return i;
             }
         }
@@ -96,7 +96,7 @@ public class ImmutableArrayList implements ImmutableList {
     }
 
     @Override
-    public ImmutableList clear() {
+    public ImmutableArrayList  clear() {
         return new ImmutableArrayList();
     }
 

@@ -50,24 +50,24 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     @Override
-    public ImmutableList add(Object e) {
+    public ImmutableLinkedList add(Object e) {
         return add(length, e);
     }
 
     @Override
-    public ImmutableList add(int index, Object e) {
+    public ImmutableLinkedList add(int index, Object e) {
         Object[] newElement = new Object[1];
         newElement[0] = e;
         return addAll(index, newElement);
     }
 
     @Override
-    public ImmutableList addAll(Object[] c) {
+    public ImmutableLinkedList addAll(Object[] c) {
         return addAll(length, c);
     }
 
     @Override
-    public ImmutableList addAll(int index, Object[] c) {
+    public ImmutableLinkedList addAll(int index, Object[] c) {
         if (length == 0) {
             return new ImmutableLinkedList(c);
         }
@@ -77,7 +77,7 @@ public class ImmutableLinkedList implements ImmutableList {
         System.arraycopy(array, 0, newArray, 0, index);
         System.arraycopy(c, 0, newArray, index, c.length);
         System.arraycopy(array, index, newArray,
-                      index + c.length, length - index);
+                index + c.length, length - index);
         return new ImmutableLinkedList(newArray);
     }
 
@@ -94,7 +94,7 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     @Override
-    public ImmutableList remove(int index) {
+    public ImmutableLinkedList remove(int index) {
         indexCheck(index);
         ImmutableLinkedList newList = makeCopy();
         int currentIndex = 0;
@@ -114,7 +114,7 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     @Override
-    public ImmutableList set(int index, Object e) {
+    public ImmutableLinkedList set(int index, Object e) {
         indexCheck(index);
         ImmutableLinkedList newList = makeCopy();
         int currentIndex = 0;
@@ -132,7 +132,7 @@ public class ImmutableLinkedList implements ImmutableList {
         ImmutableLinkedList newList = makeCopy();
         Node currentNode = newList.head;
         for (int i = 0; i < newList.length; i++) {
-            if (currentNode.getValue() == e) {
+            if (currentNode.getValue().equals(e)) {
                 return i;
             } else {
                 currentNode = currentNode.getNext();
@@ -147,7 +147,7 @@ public class ImmutableLinkedList implements ImmutableList {
     }
 
     @Override
-    public ImmutableList clear() {
+    public ImmutableLinkedList clear() {
         return new ImmutableLinkedList();
     }
 
