@@ -1,7 +1,7 @@
 package ua.edu.ucu.collections.immutable;
 
 
-public class ImmutableArrayList implements ImmutableList {
+public final class ImmutableArrayList implements ImmutableList {
 
     private static final int DEFAULT_LENGTH = 0;
     private int length;
@@ -125,8 +125,6 @@ public class ImmutableArrayList implements ImmutableList {
         toReturn.append("}");
         return toReturn.toString();
     }
-
-
 }
 
 
